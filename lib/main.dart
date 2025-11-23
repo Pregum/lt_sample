@@ -4,6 +4,7 @@ import 'screens/product_list_screen.dart';
 import 'screens/user_profile_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/ui_state_catalog_screen.dart';
+import 'screens/ai_demo_screen.dart';
 
 void main() {
   runApp(
@@ -270,6 +271,25 @@ class HomeScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.photo_library),
                 label: const Text('Open UI State Catalog (for Screenshots)'),
+                style: FilledButton.styleFrom(
+                  padding: const EdgeInsets.all(16),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.tonalIcon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AIDemoScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.auto_awesome),
+                label: const Text('AI Integration Demo (Prototype)'),
                 style: FilledButton.styleFrom(
                   padding: const EdgeInsets.all(16),
                 ),
