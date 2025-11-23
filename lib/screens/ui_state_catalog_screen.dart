@@ -34,12 +34,12 @@ class UIStateCatalogScreen extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // 1. Empty State
-          _buildSectionHeader(context, '1. Empty State'),
+          // 1. Blank State
+          _buildSectionHeader(context, '1. Blank State'),
           const SizedBox(height: 8),
           _buildStateCard(
             context,
-            'Empty State',
+            'Blank State',
             'No data available - First time use',
             const EmptyStateWidget(
               message: 'No products available',
@@ -143,13 +143,13 @@ class UIStateCatalogScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // 7. Search Results - Empty
-          _buildSectionHeader(context, '7. Search - Empty State'),
+          // 7. Search Results - Blank
+          _buildSectionHeader(context, '7. Search - Blank State'),
           const SizedBox(height: 8),
           _buildStateCard(
             context,
             'No Search Results',
-            'Empty search with suggestions',
+            'Blank search with suggestions',
             _buildSearchEmpty(context),
           ),
           const SizedBox(height: 24),

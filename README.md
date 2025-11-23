@@ -6,7 +6,7 @@ FlutterでThe Five UI Statesパターンを実装したデモアプリケーシ�
 
 Scott Hurffが提唱した、すべてのUI画面が持つべき5つの状態パターンです：
 
-1. **Empty State (空の状態)** - データがない初回起動時や、データを全削除した時の状態
+1. **Blank State (空の状態)** - データがない初回起動時や、データを全削除した時の状態
 2. **Loading State (読み込み中)** - データ取得中やネットワーク通信中の状態
 3. **Error State (エラー状態)** - エラーが発生した時の状態
 4. **Partial State (部分的な状態)** - データが少ない、または未完成の状態
@@ -82,7 +82,7 @@ Card(
 
 商品リストを表示する画面で、5つすべての状態を実装しています。
 
-#### Empty State
+#### Blank State
 - アイコン: `Icons.inbox_outlined`
 - メッセージ: "No products available"
 - アクション: "Add Products"ボタンで商品を読み込み
@@ -144,7 +144,7 @@ if (products.isEmpty) {
 
 ユーザープロフィールの表示・編集画面で、完成度に応じた状態遷移を実装しています。
 
-#### Empty State
+#### Blank State
 - 新規ユーザー向けの表示
 - "Create Profile"ボタン
 - プロフィール作成を促すメッセージ
@@ -211,7 +211,7 @@ PartialStateBanner(
 
 検索機能を持つ画面で、検索結果の状態を管理しています。
 
-#### Empty State
+#### Blank State
 - 検索前: "Start searching"メッセージと検索候補チップ
 - 検索結果なし: "No results found"メッセージと検索のヒント
 
@@ -289,13 +289,13 @@ ActionChip(
 - 各状態の説明とユースケース
 
 **表示内容**:
-1. Empty State - アイコンとCTAボタン
+1. Blank State - アイコンとCTAボタン
 2. Loading State - Shimmerスケルトンスクリーン（3アイテム）
 3. Error State - エラー詳細とリトライボタン
 4. Partial State - バナー型とボトムバー型
 5. Ideal State - 商品リスト（5アイテム）
 6. Ideal State - ユーザープロフィール（完全版）
-7. Search Empty - 検索候補付き
+7. Search Blank - 検索候補付き
 8. Search Partial - 少ない検索結果
 
 **実装のポイント**:
@@ -525,7 +525,7 @@ state = UIStateData(state: UIState.ideal, data: result);
    - アニメーションで状態変化を分かりやすく
 
 3. **ユーザーを導く**
-   - Empty Stateで次のアクションを明確に
+   - Blank Stateで次のアクションを明確に
    - Partial Stateで完了を促す
 
 4. **一貫性を保つ**

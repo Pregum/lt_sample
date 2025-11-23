@@ -172,7 +172,7 @@ class HomeScreen extends StatelessWidget {
             _buildStateCard(
               context,
               icon: Icons.inbox_outlined,
-              title: '1. Empty State',
+              title: '1. Blank State',
               description:
                   'When there\'s no data to show. First time use, cleared data, or no search results.',
               color: Colors.grey,
