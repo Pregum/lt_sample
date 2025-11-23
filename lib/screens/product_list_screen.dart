@@ -83,6 +83,7 @@ class ProductListScreen extends ConsumerWidget {
       floatingActionButton: uiState.state != UIState.loading &&
               uiState.state != UIState.error
           ? FloatingActionButton.extended(
+              heroTag: 'product_list_fab',
               onPressed: () => _addNewProduct(notifier),
               icon: const Icon(Icons.add),
               label: const Text('Add Product'),

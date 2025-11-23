@@ -68,6 +68,7 @@ class UserProfileScreen extends ConsumerWidget {
       floatingActionButton: uiState.state != UIState.loading &&
               uiState.state != UIState.error
           ? FloatingActionButton.extended(
+              heroTag: 'user_profile_fab',
               onPressed: () => _showProfileEditor(context, notifier),
               icon: const Icon(Icons.edit),
               label: const Text('Edit Profile'),
