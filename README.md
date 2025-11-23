@@ -112,15 +112,15 @@ Card(
 StateWrapper<List<Product>>(
   uiStateData: uiState,
   idealBuilder: (products) => _buildProductList(products),
-  emptyMessage: 'No products available',
+  blankMessage: 'No products available',
   onRetry: () => notifier.loadProducts(count: 10),
 )
 
 // 状態切り替えチップ
 FilterChip(
-  label: Text('Empty'),
-  selected: currentState == UIState.empty,
-  onSelected: (_) => notifier.setDemoState(UIState.empty),
+  label: Text('Blank'),
+  selected: currentState == UIState.blank,
+  onSelected: (_) => notifier.setDemoState(UIState.blank),
 )
 ```
 
@@ -128,7 +128,7 @@ FilterChip(
 ```dart
 // 商品数に応じた自動状態遷移
 if (products.isEmpty) {
-  state = UIStateData(state: UIState.empty);
+  state = UIStateData(state: UIState.blank);
 } else if (products.length <= 2) {
   state = UIStateData(state: UIState.partial);
 } else {
@@ -185,7 +185,7 @@ int get completionPercentage {
 
 // 完成度に応じた状態遷移
 if (profile.completionPercentage == 0) {
-  state = UIStateData(state: UIState.empty);
+  state = UIStateData(state: UIState.blank);
 } else if (profile.completionPercentage < 60) {
   state = UIStateData(state: UIState.partial);
 } else {
@@ -343,9 +343,9 @@ Widget _buildStateCard(
 StateWrapper<List<Product>>(
   uiStateData: uiState,
   idealBuilder: (data) => _buildProductList(data),
-  emptyMessage: 'No products available',
-  emptyButtonText: 'Add Products',
-  onEmptyAction: () => loadProducts(),
+  blankMessage: 'No products available',
+  blankButtonText: 'Add Products',
+  onBlankAction: () => loadProducts(),
   partialMessage: 'Add more products',
   onPartialAction: () => addMore(),
   onRetry: () => retry(),
@@ -367,7 +367,7 @@ UI状態とデータを保持するデータクラスです。
 
 ```dart
 enum UIState {
-  empty,    // 空
+  blank,    // 空
   loading,  // 読み込み中
   error,    // エラー
   partial,  // 部分的
@@ -380,7 +380,7 @@ class UIStateData<T> {
   final String? errorMessage;
   final int? itemCount;
 
-  bool get isEmpty => state == UIState.empty;
+  bool get isBlank => state == UIState.blank;
   bool get isLoading => state == UIState.loading;
   bool get hasError => state == UIState.error;
   bool get isPartial => state == UIState.partial;
@@ -481,7 +481,7 @@ flutter run -d chrome --web-browser-flag="--window-size=414,896"
 ```dart
 // データ量に応じて自動的に状態を変更
 if (items.isEmpty) {
-  state = UIStateData(state: UIState.empty);
+  state = UIStateData(state: UIState.blank);
 } else if (items.length <= threshold) {
   state = UIStateData(state: UIState.partial);
 } else {
